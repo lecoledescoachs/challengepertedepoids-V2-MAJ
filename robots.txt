@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /espace/
+Disallow: /merci.html
+Disallow: /merci-duo.html
+
+Sitemap: https://challengepertedepoids.fr/sitemap.xml

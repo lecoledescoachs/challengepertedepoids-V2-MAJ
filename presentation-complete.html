@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La présentation complète du Challenge 21 avec Garry Babaud</title>
+<meta name="description" content="Garry te présente le Challenge 21 en détail : pourquoi on grossit, la méthode, les résultats, l'offre, le coaching à Orléans. Navigue par chapitre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F7F2F5; --paper-alt: #EDE0E7; --paper-card: #FFFFFF;
+  --ink: #241A2E; --ink-soft: #5B4C63; --accent: #C62368; --accent-ink: #FFFFFF;
+  --accent-soft: #F3D3E1; --line: rgba(36,26,46,0.14);
+  box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper:#1A1420; --paper-alt:#251C2C; --paper-card:#251C2C; --ink:#F1E7EC; --ink-soft:#C6B7C6; --accent:#F0619A; --accent-ink:#1A1420; --accent-soft:#3D2530; --line:rgba(241,231,236,0.16); }
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:'Public Sans',-apple-system,BlinkMacSystemFont,sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+h1,h2,.serif { font-family:'Fraunces',Georgia,serif; font-weight:600; line-height:1.14; letter-spacing:-0.01em; margin:0; color:var(--ink); text-wrap:balance; }
+.wrap { max-width:920px; margin:0 auto; padding:0 22px; }
+.top-bar { padding:18px 0; border-bottom:1px solid var(--line); }
+.top-bar .wrap { display:flex; align-items:center; justify-content:space-between; }
+.logo { font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem; color:var(--ink); text-decoration:none; }
+.logo span { color:var(--accent); }
+.top-bar a.back { font-size:0.85rem; color:var(--ink-soft); text-decoration:none; }
+.hero { padding:44px 0 24px; text-align:center; }
+.hero .kicker { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:8px 18px; border-radius:100px; margin-bottom:16px; }
+.hero h1 { font-size:clamp(1.7rem,4.2vw,2.5rem); max-width:760px; margin:0 auto; }
+.hero p.sub { color:var(--ink-soft); margin-top:14px; font-size:1.02rem; max-width:600px; margin-left:auto; margin-right:auto; }
+
+.player-block { padding:8px 0 40px; }
+.player { background:#000; border-radius:20px; overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,0.4); }
+.video-frame { position:relative; width:100%; aspect-ratio:16/9; background:#000; }
+.video-frame video { width:100%; height:100%; display:block; object-fit:contain; background:#000; }
+.video-frame .big-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); border:none; cursor:pointer; color:#fff; }
+.video-frame .big-play svg { width:72px; height:72px; filter:drop-shadow(0 4px 14px rgba(0,0,0,0.5)); }
+.video-frame .big-play.is-hidden { display:none; }
+
+.controls { background:#161016; padding:10px 16px 14px; }
+.chapter-now { color:#fff; font-size:0.86rem; font-weight:700; padding:4px 2px 10px; display:flex; align-items:baseline; gap:8px; }
+.chapter-now .n { color:var(--accent); font-family:'Fraunces',serif; }
+.chapter-now .t { opacity:0.55; font-weight:500; font-size:0.78rem; }
+
+.track-wrap { position:relative; padding:10px 0; cursor:pointer; }
+.track { position:relative; height:5px; border-radius:100px; background:rgba(255,255,255,0.22); overflow:visible; }
+.track .fill { position:absolute; left:0; top:0; bottom:0; width:0%; background:var(--accent); border-radius:100px; pointer-events:none; }
+.track .knob { position:absolute; top:50%; width:13px; height:13px; border-radius:50%; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.4); transform:translate(-50%,-50%); left:0%; pointer-events:none; }
+.track .mark { position:absolute; top:50%; width:3px; height:11px; background:rgba(255,255,255,0.85); border-radius:2px; transform:translate(-50%,-50%); }
+.track .mark::after { content:''; position:absolute; inset:-8px -6px; }
+.track .mark:hover .tip, .track .mark:focus .tip { opacity:1; transform:translate(-50%,-4px); }
+.mark .tip { position:absolute; bottom:100%; left:50%; transform:translate(-50%,0); margin-bottom:10px; background:#fff; color:#161016; font-size:0.72rem; font-weight:700; padding:6px 10px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; box-shadow:0 6px 18px rgba(0,0,0,0.25); }
+
+.transport { display:flex; align-items:center; gap:14px; margin-top:2px; }
+.tbtn { background:none; border:none; color:#fff; cursor:pointer; padding:4px; display:flex; align-items:center; opacity:0.9; }
+.tbtn:hover { opacity:1; }
+.tbtn svg { width:22px; height:22px; }
+.time { color:rgba(255,255,255,0.65); font-size:0.78rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.spacer { flex:1; }
+
+.chapters { padding:8px 0 40px; }
+.chapters h2 { font-size:1.15rem; margin-bottom:18px; text-align:center; }
+.chap-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.chap-btn { background:var(--paper-card); border:2px solid var(--line); border-radius:14px; padding:0; cursor:pointer; text-align:left; overflow:hidden; font-family:inherit; color:inherit; transition:border-color .15s, transform .15s; }
+.chap-btn:hover { transform:translateY(-2px); }
+.chap-btn.active { border-color:var(--accent); }
+.chap-thumb { position:relative; aspect-ratio:16/9; background:#000; }
+.chap-thumb img { width:100%; height:100%; object-fit:cover; display:block; opacity:0.88; }
+.chap-thumb .num { position:absolute; top:8px; left:8px; background:rgba(36,26,46,0.75); color:#fff; font-weight:800; font-size:0.75rem; padding:3px 9px; border-radius:100px; }
+.chap-thumb .dur { position:absolute; bottom:8px; right:8px; background:rgba(36,26,46,0.75); color:#fff; font-size:0.7rem; padding:2px 7px; border-radius:6px; }
+.chap-label { padding:10px 12px; font-size:0.86rem; font-weight:600; line-height:1.3; }
+@media (max-width:760px) { .chap-grid { grid-template-columns:repeat(2,1fr); } }
+
+.cta-block { background:var(--ink); color:#fff; padding:44px 0; text-align:center; margin-top:8px; }
+.cta-block h2 { color:#fff; font-size:clamp(1.4rem,3.4vw,2rem); margin-bottom:18px; }
+.cta-block p { color:rgba(255,255,255,0.7); margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto; }
+.btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; padding:16px 34px; border-radius:100px; font-size:1.02rem; }
+footer { border-top:1px solid var(--line); padding:26px 0; text-align:center; }
+footer p { color:var(--ink-soft); font-size:0.82rem; margin:4px 0; }
+footer a { color:var(--ink-soft); }
+h1,p { text-wrap:pretty; }
+</style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#241A2E">
+<meta property="og:title" content="La présentation complète du Challenge 21">
+<meta property="og:description" content="Garry te présente le Challenge 21 en détail, navigable par chapitre.">
+<meta property="og:type" content="video.other">
+<meta property="og:locale" content="fr_FR">
+<script defer src="/analytics.js"></script>
+<script defer src="/share.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="wrap">
+    <a class="logo" href="index.html" style="text-decoration:none">Challenge<span>21</span></a>
+    <a class="back" href="index.html">← Retour à l'accueil</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Présentation complète</p>
+    <h1>Garry t'explique tout, en détail : la méthode, les résultats, l'offre.</h1>
+    <p class="sub">Une seule vidéo, 34 minutes. Avance chapitre par chapitre directement sur la barre, ou clique une vignette ci-dessous.</p>
+  </div>
+</section>
+
+<section class="player-block">
+  <div class="wrap">
+    <div class="player">
+      <div class="video-frame">
+        <video id="pc-video" playsinline preload="metadata" poster="photos/presentation-complete-poster.jpg">
+          <source src="videos/presentation-complete.mp4" type="video/mp4">
+        </video>
+        <button class="big-play" id="big-play" aria-label="Lecture">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+      <div class="controls">
+        <div class="chapter-now"><span class="n" id="chap-num">1</span><span id="chap-title">Introduction : tu as déjà tout essayé</span><span class="t" id="chap-range"></span></div>
+        <div class="track-wrap" id="track-wrap">
+          <div class="track" id="track">
+            <div class="fill" id="track-fill"></div>
+            <div class="knob" id="track-knob"></div>
+            <!-- marks injected by JS -->
+          </div>
+        </div>
+        <div class="transport">
+          <button class="tbtn" id="play-btn" aria-label="Lecture / Pause">
+            <svg id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+          </button>
+          <button class="tbtn" id="mute-btn" aria-label="Son">
+            <svg id="icon-vol" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>
+            <svg id="icon-mute" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M4 9v6h4l5 5V4L8 9H4zm11.5 3 2.5 2.5 1.4-1.4L16.9 12l2.5-2.5-1.4-1.4L15 10.6l-2.5-2.5-1.4 1.4L13.6 12l-2.5 2.5 1.4 1.4L15 13.4z"/></svg>
+          </button>
+          <span class="time"><span id="time-cur">0:00</span> / <span id="time-dur">34:11</span></span>
+          <span class="spacer"></span>
+          <button class="tbtn" id="fs-btn" aria-label="Plein écran">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapters">
+  <div class="wrap">
+    <h2>Les 8 chapitres</h2>
+    <div class="chap-grid" id="chap-grid"></div>
+  </div>
+</section>
+
+<div class="cta-block">
+  <div class="wrap">
+    <h2>Prête à te lancer ?</h2>
+    <p>La prochaine édition démarre le lundi 19 octobre, avec 50 places.</p>
+    <a class="btn-primary" href="index.html?utm_source=presentation-complete#tarifs">Je réserve ma place</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a></p>
+</footer>
+
+<script>
+var CHAPTERS = [
+  {start:0,      title:"Introduction : tu as déjà tout essayé", thumb:"photos/pc-1-introduction.jpg"},
+  {start:302.67, title:"Pourquoi on grossit", thumb:"photos/pc-2-pourquoi-on-grossit.jpg"},
+  {start:531.20, title:"Garry et l'histoire de Laëtitia", thumb:"photos/pc-3-garry-et-laetitia.jpg"},
+  {start:811.53, title:"Les résultats et témoignages", thumb:"photos/pc-4-resultats-et-temoignages.jpg"},
+  {start:1065.20,title:"La méthode du Challenge 21", thumb:"photos/pc-5-la-methode.jpg"},
+  {start:1538.40,title:"Les chiffres, l'offre et la garantie", thumb:"photos/pc-6-chiffres-offre-garantie.jpg"},
+  {start:1723.33,title:"Le coaching individuel à Orléans", thumb:"photos/pc-7-coaching-orleans.jpg"},
+  {start:1864.57,title:"Le site, et comment nous rejoindre", thumb:"photos/pc-8-le-site-et-nous-rejoindre.jpg"}
+];
+
+var video = document.getElementById('pc-video');
+var bigPlay = document.getElementById('big-play');
+var playBtn = document.getElementById('play-btn');
+var iconPlay = document.getElementById('icon-play');
+var iconPause = document.getElementById('icon-pause');
+var muteBtn = document.getElementById('mute-btn');
+var iconVol = document.getElementById('icon-vol');
+var iconMute = document.getElementById('icon-mute');
+var fsBtn = document.getElementById('fs-btn');
+var track = document.getElementById('track');
+var trackWrap = document.getElementById('track-wrap');
+var trackFill = document.getElementById('track-fill');
+var trackKnob = document.getElementById('track-knob');
+var timeCur = document.getElementById('time-cur');
+var timeDur = document.getElementById('time-dur');
+var chapNum = document.getElementById('chap-num');
+var chapTitle = document.getElementById('chap-title');
+var grid = document.getElementById('chap-grid');
+var buttons = [];
+var duration = 2051.72;
+var scrubbing = false;
+
+function fmt(s) {
+  s = Math.max(0, Math.floor(s));
+  var m = Math.floor(s / 60), r = s % 60;
+  return m + ':' + (r < 10 ? '0' : '') + r;
+}
+
+function currentChapterIndex(t) {
+  var idx = 0;
+  for (var i = 0; i < CHAPTERS.length; i++) { if (t >= CHAPTERS[i].start) idx = i; }
+  return idx;
+}
+
+function renderMarks() {
+  CHAPTERS.forEach(function (c, i) {
+    if (i === 0) return;
+    var m = document.createElement('div');
+    m.className = 'mark'; m.tabIndex = 0;
+    m.style.left = (c.start / duration * 100) + '%';
+    m.innerHTML = '<span class="tip">' + c.title + '</span>';
+    m.addEventListener('click', function (e) { e.stopPropagation(); seekTo(c.start + 0.05); });
+    track.appendChild(m);
+  });
+}
+
+function renderGrid() {
+  grid.innerHTML = '';
+  CHAPTERS.forEach(function (c, i) {
+    var end = i < CHAPTERS.length - 1 ? CHAPTERS[i + 1].start : duration;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'chap-btn';
+    btn.innerHTML = '<div class="chap-thumb"><img src="' + c.thumb + '" alt="' + c.title + '" loading="lazy"><span class="num">' + (i + 1) + '</span><span class="dur">' + fmt(end - c.start) + '</span></div><div class="chap-label">' + c.title + '</div>';
+    btn.addEventListener('click', function () {
+      seekTo(c.start + 0.05); playVideo();
+      window.scrollTo({ top: document.querySelector('.player-block').offsetTop - 20, behavior: 'smooth' });
+    });
+    grid.appendChild(btn); buttons.push(btn);
+  });
+}
+
+function updateChapterUI(t) {
+  var idx = currentChapterIndex(t);
+  chapNum.textContent = idx + 1;
+  chapTitle.textContent = CHAPTERS[idx].title;
+  buttons.forEach(function (b, j) { b.classList.toggle('active', j === idx); });
+}
+
+function updateProgress(t) {
+  var pct = Math.min(100, Math.max(0, t / duration * 100));
+  trackFill.style.width = pct + '%';
+  trackKnob.style.left = pct + '%';
+  timeCur.textContent = fmt(t);
+}
+
+function seekTo(t) {
+  t = Math.min(duration - 0.1, Math.max(0, t));
+  video.currentTime = t;
+  updateProgress(t); updateChapterUI(t);
+}
+
+function playVideo() { video.play().catch(function () {}); }
+
+function pctFromEvent(e) {
+  var r = track.getBoundingClientRect();
+  var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+  return Math.min(1, Math.max(0, x / r.width));
+}
+
+trackWrap.addEventListener('click', function (e) { if (e.target.closest('.mark')) return; seekTo(pctFromEvent(e) * duration); });
+trackKnob.addEventListener('mousedown', function (e) { scrubbing = true; e.preventDefault(); });
+window.addEventListener('mousemove', function (e) { if (scrubbing) seekTo(pctFromEvent(e) * duration); });
+window.addEventListener('mouseup', function () { if (scrubbing) { scrubbing = false; playVideo(); } });
+
+function togglePlay() {
+  if (video.paused) { playVideo(); } else { video.pause(); }
+}
+bigPlay.addEventListener('click', togglePlay);
+playBtn.addEventListener('click', togglePlay);
+video.addEventListener('play', function () { iconPlay.style.display = 'none'; iconPause.style.display = ''; bigPlay.classList.add('is-hidden'); });
+video.addEventListener('pause', function () { iconPlay.style.display = ''; iconPause.style.display = 'none'; bigPlay.classList.remove('is-hidden'); });
+video.addEventListener('timeupdate', function () { if (!scrubbing) { updateProgress(video.currentTime); updateChapterUI(video.currentTime); } });
+video.addEventListener('loadedmetadata', function () {
+  if (video.duration && isFinite(video.duration)) { duration = video.duration; }
+  timeDur.textContent = fmt(duration);
+  renderMarks(); renderGrid();
+});
+
+muteBtn.addEventListener('click', function () {
+  video.muted = !video.muted;
+  iconVol.style.display = video.muted ? 'none' : '';
+  iconMute.style.display = video.muted ? '' : 'none';
+});
+fsBtn.addEventListener('click', function () {
+  var el = document.querySelector('.video-frame');
+  if (el.requestFullscreen) el.requestFullscreen();
+  else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+});
+
+// rendu immédiat avec la durée estimée, affiné dès que les vraies métadonnées arrivent
+timeDur.textContent = fmt(duration);
+renderMarks(); renderGrid();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Mise en cache des images et polices (7 jours) pour accélérer les visites suivantes
+[[headers]]
+  for = "/photos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Séquences d'emails automatiques : chaque matin à 8 h 30 (heure de Paris en été, 7 h 30 en hiver)
+[functions."sequences"]
+  schedule = "30 6 * * *"
+
+# Espace des guides : jamais indexé par les moteurs de recherche
+[[headers]]
+  for = "/espace/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "private, max-age=3600"
